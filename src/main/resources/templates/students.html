@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/students/new}">New Student</a>
                 </li>
             </ul>
         </div>
@@ -33,7 +33,7 @@
     </div>
     <br/>
     <table class="table table-stripped table-hover table-bordered">
-        <thead>
+        <thead class="table-dark">
         <tr>
             <th>Student First Name</th>
             <th>Student Second Name</th>
@@ -46,6 +46,11 @@
                 <td th:text="${student.firstName}"></td>
                 <td th:text="${student.lastName}"></td>
                 <td th:text="${student.email}"></td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{/students/{studentId}/edit(studentId=${student.id})}">Edit</a>
+                    <a class="btn btn-danger" th:href="@{/students/{studentId}/delete(studentId=${student.id})}">Delete</a>
+                    <a class="btn btn-info" th:href="@{/students/{studentId}/view(studentId=${student.id})}">View</a>
+                </td>
             </tr>
         </tbody>
     </table>
